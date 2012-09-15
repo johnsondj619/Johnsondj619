@@ -1,12 +1,48 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-
-# Compiled Dynamic libraries
-*.so
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+#include <iostream.h>
+#include <conio.h>
+struct car {
+char name;
+char nby;
+int i; 
+};
+void main() {
+struct car* nr;
+int n;
+char to, temp = 'B';
+cout << "Enter number of Carsapar from A: ";
+cin >> n;
+nr = new car[n];
+for(int i = 0; i < n; i++) {
+    cout << "\nEnter details for car " << (i+1);
+	  cout << "\nName: " << temp << "\n";
+	  (nr+i)->name = temp;
+	  temp++;
+	  cout<<"nearby (y/n): ";
+	  cin >>(nr+i)->nby;
+	  if((nr+i)->nby == 'n') {
+	  cout << "RSA: ";
+	  cin >> (nr+i)->i;}
+	  else (nr+i)->i = i;
+}
+do {
+cout << "\n\nTables Updated. Message to car: ";
+cin >> to;
+cout << "\nProcessing has begun...\n";
+cout << "looking for car " << to << "\n";
+int flag = 0;
+for(i = 0; i < n; i++) {
+if((nr+i)->name == to) {
+if((nr+i)->nby == 'y') flag = 1;
+else { flag = ((nr+i)->i + 5); }
+break; } }
+if(flag == 0) cout << "No such car present...";
+else if(flag == 1) {
+cout << "Car is present in range\n";
+cout << "Establishing connection with target.\nSending data\nComplete"; }
+else {
+cout << "Car is not in range\n";
+cout << "Quering for targets RSU.\n";
+for(int j = 0; j < flag-5; j++) cout << "Connecting with RSU: " << (j+1) << "\n";
+cout<<"Sending Data\nComplete."; }
+} while(to != 'E');
+getch(); }
